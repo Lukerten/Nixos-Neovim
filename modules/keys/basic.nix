@@ -25,10 +25,11 @@ in
 
         "<A-Up>" = ":resize -3<CR>";
         "<A-Down>" = ":resize +3<CR>";
-        "<A-Left>" = ":vertical resize -3<CR>";
-        "<A-Right>" = ":vertical resize +3<CR>";
-
+        "<A-Left>" = ":vertical resize +3<CR>";
+        "<A-Right>" = ":vertical resize -3<CR>";
         "<F7>" = ":setlocal spell<CR>";
+
+        # Copilot Keys
         "<leader>cpd" = ":Copilot disable<CR>";
         "<leader>cpe" = ":Copilot enable<CR>";
         "<leader>cps" = ":Copilot split<CR>";
@@ -39,12 +40,6 @@ in
         # Move and center
         "<C-d>" = "<C-d>zz";
         "<C-u>" = "<C-u>zz";
-
-        # Search and replace
-        "<leader>s" = ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>";
-
-        # Clear Search
-        "<leader>cc" = ":noh<CR>";
       }
       else { };
 

@@ -22,25 +22,37 @@ in
       {
         vim.startPlugins = [ "gitsigns-nvim" ];
 
-        vim.luaConfigRC.gitsigns = nvim.dag.entryAnywhere ''
+        vim.nnoremap = {
+          "<leader>gj" = ":lua require 'gitsigns'.next_hunk()<cr>";
+          "<leader>gk" = ":lua require 'gitsigns'.prev_hunk()<cr>";
+          "<leader>gl" = ":lua require 'gitsigns'.blame_line()<cr>";
+          "<leader>gp" = ":lua require 'gitsigns'.preview_hunk()<cr>";
+          "<leader>gr" = ":lua require 'gitsigns'.reset_hunk()<cr>";
+          "<leader>gR" = ":lua require 'gitsigns'.reset_buffer()<cr>";
+          "<leader>gs" = ":lua require 'gitsigns'.stage_hunk()<cr>";
+          "<leader>gu" = ":lua require 'gitsigns'.undo_stage_hunk()<cr>";
+          "<leader>gd" = ":Gitsigns diffthis HEAD<cr>";
+        };
+
+        vim.luaConfigRC.gitsigns = nvim.dag.entryAnywhere /* lua */''
           require('gitsigns').setup {
             watch_gitdir = {
-            interval = 1000,
-            follow_files = true
+              interval = 1000,
+              follow_files = true
             },
             attach_to_untracked = true,
             current_line_blame = false,
             current_line_blame_opts = {
               virt_text = true,
-              virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+              virt_text_pos = 'eol',
               delay = 1000,
               ignore_whitespace = false,
             },
             current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
             sign_priority = 6,
             update_debounce = 100,
-            status_formatter = nil, -- Use default
-            max_file_length = 3000, -- Disable if file is longer than this (in lines)
+            status_formatter = nil,
+            max_file_length = 3000,
             preview_config = {
               -- Options passed to nvim_open_win
               border = 'single',
@@ -60,48 +72,6 @@ in
                 opts.buffer = bufnr
                 vim.keymap.set(mode, l, r, opts)
               end
-
-              -- navigation
-              map('n', '<leader>gn', function()
-                if vim.wo.diff then return '<leader>gn' end
-                vim.schedule(function() gs.next_hunk() end)
-                return '<Ignore>'
-              end, {expr=true})
-
-              map('n', '<leader>gp', function()
-                if vim.wo.diff then return '<leader>gn' end
-                vim.schedule(function() gs.prev_hunk() end)
-                return '<Ignore>'
-              end, {expr=true})
-
-              -- actions
-              map('n', '<leader>gs', gs.stage_hunk)
-              map('v', '<leader>gs', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-
-              map('n', '<leader>gr', gs.reset_hunk)
-              map('v', '<leader>gr', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-
-              map('n', '<leader>gp', gs.preview_hunk)
-              map('n', '<leader>gu', gs.undo_stage_hunk)
-
-              map('n', '<leader>gS', gs.stage_buffer)
-              map('n', '<leader>gR', gs.reset_buffer)
-
-              map('n', '<leader>gd', gs.diffthis)
-              map('n', '<leader>gD', function() gs.diffthis('~') end)
-
-              map('n', '<leader>gb', function() gs.blame_line{full=true} end)
-
-              -- Toggles
-              map('n', '<leader>gtd', gs.toggle_deleted)
-              map('n', '<leader>gtb', gs.toggle_current_line_blame)
-              map('n', '<leader>gts', gs.toggle_signs)
-              map('n', '<leader>gtn', gs.toggle_numhl)
-              map('n', '<leader>gtl', gs.toggle_linehl)
-              map('n', '<leader>gtw', gs.toggle_word_diff)
-
-              -- Text objects
-              map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
             end
           }
         '';
@@ -109,7 +79,7 @@ in
 
       (mkIf cfg.gitsigns.codeActions {
         vim.lsp.null-ls.enable = true;
-        vim.lsp.null-ls.sources.gitsigns-ca = ''
+        vim.lsp.null-ls.sources.gitsigns-ca = /* lua */''
           table.insert(
             ls_sources,
             null_ls.builtins.code_actions.gitsigns

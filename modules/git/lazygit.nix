@@ -18,8 +18,16 @@ in
   config = mkIf cfg.enable {
     vim.startPlugins = [ "lazygit" ];
 
-    vim.luaConfigRC.lazygit = nvim.dag.entryAnywhere ''
-      vim.api.nvim_set_keymap('n', '<leader>/', ':LazyGit<CR>', { silent = true })
-    '';
+    vim.nnoremap = {
+      "<leader>gg" = ":LazyGit<CR>";
+    } // (
+      if config.vim.telescope.enable
+      then {
+       "<leader>go" = ":Telescope git_status<cr>";
+       "<leader>gb" = ":Telescope git_branches<cr>";
+       "<leader>gc" = ":Telescope git_commits<cr>";
+      }
+      else {}
+    );
   };
 }

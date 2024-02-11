@@ -623,6 +623,22 @@
         "type": "github"
       }
     },
+    "plugins-project_nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1680567592,
+        "narHash": "sha256-avV3wMiDbraxW4mqlEsKy0oeewaRj9Q33K8NzWoaptU=",
+        "owner": "ahmedkhalf",
+        "repo": "project.nvim",
+        "rev": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ahmedkhalf",
+        "repo": "project.nvim",
+        "type": "github"
+      }
+    },
     "plugins-rust-tools": {
       "flake": false,
       "locked": {
@@ -687,6 +703,22 @@
         "type": "github"
       }
     },
+    "plugins-toggle-term": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1705944058,
+        "narHash": "sha256-y+83w0D2jD68QJpBCYXLqUUxVu9MTBZ+nJutYD7jAoQ=",
+        "owner": "akinsho",
+        "repo": "toggleterm.nvim",
+        "rev": "b49df5cdce67a8964d1b027dae94bde212092b51",
+        "type": "github"
+      },
+      "original": {
+        "owner": "akinsho",
+        "repo": "toggleterm.nvim",
+        "type": "github"
+      }
+    },
     "plugins-tokyonight": {
       "flake": false,
       "locked": {
@@ -732,22 +764,6 @@
       "original": {
         "owner": "hrsh7th",
         "repo": "vim-vsnip",
-        "type": "github"
-      }
-    },
-    "plugins-vimwiki": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1706152453,
-        "narHash": "sha256-K82iqA5IBNUn/IfaDV5AJzcupffY+ye9SfSe10x3Pl0=",
-        "owner": "vimwiki",
-        "repo": "vimwiki",
-        "rev": "fde35bb87e45abe930eebef5ab99a16289e53789",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vimwiki",
-        "repo": "vimwiki",
         "type": "github"
       }
     },
@@ -825,14 +841,15 @@
         "plugins-nvim-web-devicons": "plugins-nvim-web-devicons",
         "plugins-octo-nvim": "plugins-octo-nvim",
         "plugins-plenary-nvim": "plugins-plenary-nvim",
+        "plugins-project_nvim": "plugins-project_nvim",
         "plugins-rust-tools": "plugins-rust-tools",
         "plugins-sqls-nvim": "plugins-sqls-nvim",
         "plugins-telescope": "plugins-telescope",
         "plugins-todo-comments": "plugins-todo-comments",
+        "plugins-toggle-term": "plugins-toggle-term",
         "plugins-tokyonight": "plugins-tokyonight",
         "plugins-trouble": "plugins-trouble",
         "plugins-vim-vsnip": "plugins-vim-vsnip",
-        "plugins-vimwiki": "plugins-vimwiki",
         "plugins-which-key": "plugins-which-key",
         "rnix-lsp": "rnix-lsp"
       }

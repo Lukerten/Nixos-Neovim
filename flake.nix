@@ -71,6 +71,10 @@
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;
     };
+    plugins-project_nvim = {
+      url ="github:ahmedkhalf/project.nvim";
+      flake = false;
+    };
 
     # Statuslines
     plugins-lualine = {
@@ -185,10 +189,6 @@
       url = "github:folke/todo-comments.nvim";
       flake = false;
     };
-    plugins-vimwiki = {
-      url = "github:vimwiki/vimwiki";
-      flake = false;
-    };
     plugins-alpha-nvim = {
       url = "github:goolord/alpha-nvim";
       flake = false;
@@ -199,7 +199,10 @@
       url = "github:folke/which-key.nvim";
       flake = false;
     };
-
+    plugins-toggle-term = {
+      url = "github:akinsho/toggleterm.nvim";
+      flake = false;
+    };
     plugins-plenary-nvim = {
       url = "github:nvim-lua/plenary.nvim";
       flake = false;
@@ -294,6 +297,7 @@
         };
         vim.theme.enable = true;
         vim.telescope.enable = true;
+        vim.project.enable = true;
       };
     };
   in

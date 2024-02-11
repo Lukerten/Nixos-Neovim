@@ -1,8 +1,7 @@
-{ config, lib, ...}:
+{ lib, ...}:
 with lib;
-with builtins; let
-  cfg = config.vim.visuals;
-in {
+with builtins;
+{
   vim.startPlugins = ["alpha-nvim"];
 
   vim.nnoremap = {
@@ -12,12 +11,6 @@ in {
 
   vim.luaConfigRC.alpha-nvim = nvim.dag.entryAnywhere /* lua */ ''
 
-    function _CREATE_PROJECT()
-      vim.cmd('silent! cd ~/projects')
-      vim.cmd('silent! !mkdir my_project')
-      vim.cmd('silent! cd my_project')
-    end
-
     function _RECENT_PROJECTS()
       require'telescope'.extensions.frecency.frecency()
     end
@@ -25,28 +18,26 @@ in {
     local dashboard = require("alpha.themes.dashboard")
 
     dashboard.section.header.val = {
-      "                                                     ",
-      "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
-      "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
-      "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
-      "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-      "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-      "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-      "                                                     ",
+    [[                                                                     ]],
+    [[       ███████████           █████      ██                     ]],
+    [[      ███████████             █████                             ]],
+    [[      ████████████████ ███████████ ███   ███████     ]],
+    [[     ████████████████ ████████████ █████ ██████████████   ]],
+    [[    █████████████████████████████ █████ █████ ████ █████   ]],
+    [[  ██████████████████████████████████ █████ █████ ████ █████  ]],
+    [[ ██████  ███ █████████████████ ████ █████ █████ ████ ██████ ]],
+    [[ ██████   ██  ███████████████   ██ █████████████████ ]],
+    [[ ██████   ██  ███████████████   ██ █████████████████ ]],
     }
 
 
     dashboard.section.buttons.val = {
-      dashboard.button("n", "  New Project", "lua _CREATE_PROJECT() <CR>"),
-      dashboard.button("p", "  Find project", ":silent! Telescope projects <CR>"),
-      dashboard.button("f", "  Find files", ":silent! Telescope find_files <CR>"),
-      dashboard.button("s", "󱎸  Find text", ":silent! Telescope live_grep <CR>"),
-      dashboard.button("t", "  Open Terminal", ":silent! ToggleTerm direction=float<CR>"),
-      dashboard.button("r", "  Recently used files", ":silent! Telescope oldfiles <CR>"),
-      dashboard.button("e", "󰄐  View Extensions", ":silent! Lazy profile<CR>"),
-      dashboard.button("d", "  Vimwiki", ":silent! VimwikiIndex<CR>"),
-      dashboard.button("c", "  Configuration", ":silent! e $MYVIMRC <CR>"),
-      dashboard.button("q", "  Quit Neovim", ":silent! qa<CR>"),
+      dashboard.button("p", "  Find project", ":Telescope projects <CR>"),
+      dashboard.button("f", "  Find files", ":Telescope find_files <CR>"),
+      dashboard.button("s", "󱎸  Find text", ":Telescope live_grep <CR>"),
+      dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
+      dashboard.button("t", "  Open Terminal", ":ToggleTerm direction=float<CR>"),
+      dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
     }
 
     dashboard.section.footer.val = {
@@ -56,8 +47,8 @@ in {
       "          - Edsger W. Dijkstra - ",
     }
 
-    dashboard.section.footer.opts.hl = "Type"
-    dashboard.section.header.opts.hl = "Include"
+    dashboard.section.footer.opts.hl = "Error"
+    dashboard.section.header.opts.hl = "Function"
     dashboard.section.buttons.opts.hl = "Keyword"
     dashboard.section.header.opts.spacing = 0
 
