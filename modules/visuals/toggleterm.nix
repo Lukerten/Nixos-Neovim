@@ -1,36 +1,65 @@
-{pkgs, config, lib, ... }:
+{lib, ... }:
 with lib;
-with builtins; let
-  cfg = config.vim.visuals.toggleterm;
-in {
-  options.vim.visuals.toggleterm = {
-    enable = mkOption {
-      type = types.bool;
-      default = true;
-      description = "Enable toggleTerm";
-    };
+with builtins;{
+  vim.startPlugins = ["toggle-term"];
+  vim.nnoremap = {
+    "<leader>Tf" = ":ToggleTerm<CR>";
+    "<leader>Tn" = ":lua _Node_Term<CR>";
+    "<leader>Tu" = ":lua _NCDU_Term<CR>";
+    "<leader>Th" = ":lua _HTOP_Term<CR>";
+    "<leader>Tp" = ":lua _PYTHON_Term<CR>";
+    "<leader>t"  = ":lua _Shell_Term<CR>";
   };
 
-  config = mkIf cfg.enable {
-    vim.startPlugins = ["toggleterm"];
+  vim.luaConfigRC.toggle-term = nvim.dag.entryAnywhere /* lua */ ''
+  require("toggleterm").setup({
+    size = 20;
+    open_mapping = [[<C-%]],
+    shade_filetypes = {},
+    shade_terminals = true,
+    shading_factor = 2,
+    start_in_insert = true,
+    persist_size = true,
+    direction = 'float',
+    close_on_exit = true,
+    shell = vim.o.shell,
+    float_opts = {
+      border = "curved",
+      winblend = 0,
+      highlights = {
+        border = "Normal",
+        background = "Normal",
+      },
+    },
+  })
 
-    vim.nnoremap = {
-      "<leader>t" = ":ToggleTerm<CR>";
-    };
+  local Terminal = require("toggleterm.terminal").Terminal
+  local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+  local shell = Terminal:new({ direction = "horizontal", hidden = true, size = 20, start_in_insert = false})
+  local node = Terminal:new({ cmd = "node", hidden = true })
+  local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
+  local htop = Terminal:new({ cmd = "htop", hidden = true })
+  local python = Terminal:new({ cmd = "python", hidden = true })
+  function _Node_Term()
+    node:toggle()
+  end
 
-    vim.luaConfigRC.toggleterm = nvim.dag.entryAnywhere /* lua */ ''
-      require("toggleterm").setup({
-        direction = 'vertical',
-        size = 80,
-      })
+  function _NCDU_Term()
+    ncdu:toggle()
+  end
 
+  function _HTOP_Term()
+    htop:toggle()
+  end
 
-      -- Define a command to open terminal in vertical split
-      vim.cmd("command! -nargs=1 VTerm :lua require'toggleterm'.open_vertical(tonumber(<f-args>))")
+  function _PYTHON_Term()
+    python:toggle()
+  end
 
-      -- Set additional options for toggleterm (optional)
-      vim.g.toggleterm_close_on_exit = 2  -- Close the terminal window when the process inside it exits
-      vim.g.toggleterm_auto_insert = 1
-    '';
-  };
+  function _Shell_Term()
+    shell:toggle()
+    vim.cmd("NvimTreeToggle")
+    vim.cmd("NvimTreeToggle")
+  end
+  '';
 }
