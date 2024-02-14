@@ -46,14 +46,14 @@ in {
             },
           }
 
-          vim.keymap.set("n", "<leader>do", dap.repl.open)
-          vim.keymap.set("n", "<leader>dc", dap.continue)
-          vim.keymap.set("n", "<leader>dsn", dap.step_over)
-          vim.keymap.set("n", "<leader>dsi", dap.step_into)
-          vim.keymap.set("n", "<leader>dso", dap.step_out)
-          vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint)
-          vim.keymap.set("n", "<leader>dB", function() require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end)
-          vim.keymap.set("n", "<leader>dp", function() require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+          vim.keymap.set("n", "<leader>Do", dap.repl.open)
+          vim.keymap.set("n", "<leader>Dc", dap.continue)
+          vim.keymap.set("n", "<leader>Dsn", dap.step_over)
+          vim.keymap.set("n", "<leader>Dsi", dap.step_into)
+          vim.keymap.set("n", "<leader>Dso", dap.step_out)
+          vim.keymap.set("n", "<leader>Db", dap.toggle_breakpoint)
+          vim.keymap.set("n", "<leader>DB", function() require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end)
+          vim.keymap.set("n", "<leader>Dp", function() require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
         '';
     }
     (mkIf cfg.virtualText.enable {
@@ -79,7 +79,7 @@ in {
             local dapui = require"dapui"
 
             dapui.setup()
-            vim.keymap.set("n", "<leader>du", dapui.toggle)
+            vim.keymap.set("n", "<leader>Du", dapui.toggle)
           ''
         )
         + (optionalString cfg.ui.autoOpen

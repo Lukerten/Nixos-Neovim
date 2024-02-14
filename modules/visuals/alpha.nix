@@ -37,6 +37,7 @@ with builtins;
       dashboard.button("s", "󱎸  Find text", ":Telescope live_grep <CR>"),
       dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
       dashboard.button("t", "  Open Terminal", ":ToggleTerm direction=float<CR>"),
+      dashboard.button("d", "  Open Vimwiki", ":VimwikiIndex<CR>"),
       dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
     }
 

@@ -17,12 +17,12 @@ in {
     vim.startPlugins = ["trouble"];
 
     vim.nnoremap = {
-      "<leader>xx" = "<cmd>TroubleToggle<CR>";
-      "<leader>lwd" = "<cmd>TroubleToggle workspace_diagnostics<CR>";
-      "<leader>ld" = "<cmd>TroubleToggle document_diagnostics<CR>";
-      "<leader>lr" = "<cmd>TroubleToggle lsp_references<CR>";
-      "<leader>xq" = "<cmd>TroubleToggle quickfix<CR>";
-      "<leader>xl" = "<cmd>TroubleToggle loclist<CR>";
+      "<leader>Xx" = "<cmd>TroubleToggle<CR>";
+      "<leader>Lwd" = "<cmd>TroubleToggle workspace_diagnostics<CR>";
+      "<leader>Ld" = "<cmd>TroubleToggle document_diagnostics<CR>";
+      "<leader>Lr" = "<cmd>TroubleToggle lsp_references<CR>";
+      "<leader>Xq" = "<cmd>TroubleToggle quickfix<CR>";
+      "<leader>Xl" = "<cmd>TroubleToggle loclist<CR>";
     };
 
     vim.luaConfigRC.trouble =

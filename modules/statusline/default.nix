@@ -154,7 +154,7 @@ in {
           options = {
             icons_enabled = ${boolToString cfg.icons},
             theme = "${cfg.theme}",
-            disabled_filetypes = { "dashboard", "NvimTree", "Outline", "toggleterm" , "alpha" , "Trouble" },
+            disabled_filetypes = { "dashboard", "NvimTree", "Outline", "alpha" , "Trouble" },
             always_divide_middle = true,
             component_separators = {
               left = "${cfg.componentSeparator.left}",

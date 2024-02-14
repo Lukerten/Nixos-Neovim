@@ -31,9 +31,9 @@ in
         "<F7>" = ":setlocal spell<CR>";
 
         # Copilot Keys
-        "<leader>cpd" = ":Copilot disable<CR>";
-        "<leader>cpe" = ":Copilot enable<CR>";
-        "<leader>cps" = ":Copilot split<CR>";
+        "<leader>Cpd" = ":Copilot disable<CR>";
+        "<leader>Cpe" = ":Copilot enable<CR>";
+        "<leader>Cps" = ":Copilot split<CR>";
 
         # Return to last edit buffer.
         "<S-Tab>" = ":e #<CR>";
@@ -41,6 +41,10 @@ in
         # Move and center
         "<C-d>" = "<C-d>zz";
         "<C-u>" = "<C-u>zz";
+
+        # utils
+        "<leader>w" = ":wa!<CR>";
+        "<leader>q" = ":qa<CR>";
       }
       else { };
 

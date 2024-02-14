@@ -4,11 +4,11 @@ with builtins; {
   vim.startPlugins = ["toggle-term"];
   vim.nnoremap = {
     "<leader>Tf" = ":ToggleTerm<CR>";
-    "<leader>Tn" = ":lua _Node_Term()<CR>";
-    "<leader>Tu" = ":lua _NCDU_Term()<CR>";
-    "<leader>Th" = ":lua _HTOP_Term()<CR>";
-    "<leader>Tp" = ":lua _PYTHON_Term()<CR>";
-    "<leader>t" = ":lua _Shell_Term()<CR>";
+    "<leader>Tn" = ":lua Node_Term()<CR>";
+    "<leader>Tu" = ":lua NCDU_Term()<CR>";
+    "<leader>Th" = ":lua HTOP_Term()<CR>";
+    "<leader>Tp" = ":lua PYTHON_Term()<CR>";
+    "<leader>t" = ":lua Shell()<CR>";
   };
 
   vim.luaConfigRC.toggle-term =
@@ -45,23 +45,23 @@ with builtins; {
       local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
       local htop = Terminal:new({ cmd = "htop", hidden = true })
       local python = Terminal:new({ cmd = "python", hidden = true })
-      function _Node_Term()
+      function Node_Term()
         node:toggle()
       end
 
-      function _NCDU_Term()
+      function NCDU_Term()
         ncdu:toggle()
       end
 
-      function _HTOP_Term()
+      function HTOP_Term()
         htop:toggle()
       end
 
-      function _PYTHON_Term()
+      function PYTHON_Term()
         python:toggle()
       end
 
-      function _Shell_Term()
+      function Shell()
         shell:toggle()
         vim.cmd("NvimTreeToggle")
         vim.cmd("NvimTreeToggle")

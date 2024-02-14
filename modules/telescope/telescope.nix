@@ -18,42 +18,28 @@ in {
         "<leader>F" = "<cmd> Telescope live_grep<CR>";
 
         # Help
-        "<leader>hb" = "<cmd>Telescope git_branches<cr>";
-        "<leader>hc" = "<cmd>Telescope colorscheme<cr>";
-        "<leader>hh" = "<cmd>Telescope help_tags<cr>";
-        "<leader>hm" = "<cmd>Telescope man_pages<cr>";
-        "<leader>hr" = "<cmd>Telescope oldfiles<cr>";
-        "<leader>hR" = "<cmd>Telescope registers<cr>";
-        "<leader>hk" = "<cmd>Telescope keymaps<cr>";
-        "<leader>hC" = "<cmd>Telescope commands<cr>";
+        "<leader>Hb" = "<cmd>Telescope git_branches<cr>";
+        "<leader>Hc" = "<cmd>Telescope colorscheme<cr>";
+        "<leader>Hh" = "<cmd>Telescope help_tags<cr>";
+        "<leader>Hm" = "<cmd>Telescope man_pages<cr>";
+        "<leader>Hr" = "<cmd>Telescope oldfiles<cr>";
+        "<leader>HR" = "<cmd>Telescope registers<cr>";
+        "<leader>Hk" = "<cmd>Telescope keymaps<cr>";
+        "<leader>HC" = "<cmd>Telescope commands<cr>";
 
         # Buffers
         "<Tab>" = "<cmd> Telescope buffers<CR>";
-
-        "<leader>fvcw" = "<cmd> Telescope git_commits<CR>";
-        "<leader>fvcb" = "<cmd> Telescope git_bcommits<CR>";
-        "<leader>fvb" = "<cmd> Telescope git_branches<CR>";
-        "<leader>fvs" = "<cmd> Telescope git_status<CR>";
-        "<leader>fvx" = "<cmd> Telescope git_stash<CR>";
       }
       // (
         if config.vim.lsp.enable
         then {
-          "<leader>flsb" = "<cmd> Telescope lsp_document_symbols<CR>";
-          "<leader>flsw" = "<cmd> Telescope lsp_workspace_symbols<CR>";
-
-          "<leader>flr" = "<cmd> Telescope lsp_references<CR>";
-          "<leader>fli" = "<cmd> Telescope lsp_implementations<CR>";
-          "<leader>flD" = "<cmd> Telescope lsp_definitions<CR>";
-          "<leader>flt" = "<cmd> Telescope lsp_type_definitions<CR>";
-          "<leader>fld" = "<cmd> Telescope diagnostics<CR>";
-        }
-        else {}
-      )
-      // (
-        if config.vim.treesitter.enable
-        then {
-          "<leader>fs" = "<cmd> Telescope treesitter<CR>";
+          "<leader>Lds" = "<cmd> Telescope lsp_document_symbols<CR>";
+          "<leader>Lsw" = "<cmd> Telescope lsp_workspace_symbols<CR>";
+          "<leader>Llr" = "<cmd> Telescope lsp_references<CR>";
+          "<leader>Lli" = "<cmd> Telescope lsp_implementations<CR>";
+          "<leader>LlD" = "<cmd> Telescope lsp_definitions<CR>";
+          "<leader>Llt" = "<cmd> Telescope lsp_type_definitions<CR>";
+          "<leader>Lld" = "<cmd> Telescope diagnostics<CR>";
         }
         else {}
       );

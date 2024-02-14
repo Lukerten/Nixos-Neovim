@@ -18,6 +18,7 @@
     ./telescope
     ./theme
     ./treesitter
+    ./utils
     ./visuals
   ];
 

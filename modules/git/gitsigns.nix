@@ -23,15 +23,15 @@ in
         vim.startPlugins = [ "gitsigns-nvim" ];
 
         vim.nnoremap = {
-          "<leader>gj" = ":lua require 'gitsigns'.next_hunk()<cr>";
-          "<leader>gk" = ":lua require 'gitsigns'.prev_hunk()<cr>";
-          "<leader>gl" = ":lua require 'gitsigns'.blame_line()<cr>";
-          "<leader>gp" = ":lua require 'gitsigns'.preview_hunk()<cr>";
-          "<leader>gr" = ":lua require 'gitsigns'.reset_hunk()<cr>";
-          "<leader>gR" = ":lua require 'gitsigns'.reset_buffer()<cr>";
-          "<leader>gs" = ":lua require 'gitsigns'.stage_hunk()<cr>";
-          "<leader>gu" = ":lua require 'gitsigns'.undo_stage_hunk()<cr>";
-          "<leader>gd" = ":Gitsigns diffthis HEAD<cr>";
+          "<leader>Gj" = ":lua require 'gitsigns'.next_hunk()<cr>";
+          "<leader>Gk" = ":lua require 'gitsigns'.prev_hunk()<cr>";
+          "<leader>Gl" = ":lua require 'gitsigns'.blame_line()<cr>";
+          "<leader>Gp" = ":lua require 'gitsigns'.preview_hunk()<cr>";
+          "<leader>Gr" = ":lua require 'gitsigns'.reset_hunk()<cr>";
+          "<leader>GR" = ":lua require 'gitsigns'.reset_buffer()<cr>";
+          "<leader>Gs" = ":lua require 'gitsigns'.stage_hunk()<cr>";
+          "<leader>Gu" = ":lua require 'gitsigns'.undo_stage_hunk()<cr>";
+          "<leader>Gd" = ":Gitsigns diffthis HEAD<cr>";
         };
 
         vim.luaConfigRC.gitsigns = nvim.dag.entryAnywhere /* lua */''

@@ -128,6 +128,12 @@ in {
       default = true;
       description = "New splits will open to the right";
     };
+
+    whichwrap = mkOption {
+      type = types.str;
+      default = "lh<>";
+      description = "Characters that will allow the cursor to move to the next line";
+    };
   };
 
   config = {
@@ -151,6 +157,7 @@ in {
 
     vim.configRC.basic = nvim.dag.entryAfter ["globalsScript"] ''
       " Settings that are set for everything
+      set whichwrap=${cfg.whichwrap}
       set encoding=utf-8
       set mouse=${cfg.mouseSupport}
       set tabstop=${toString cfg.tabWidth}

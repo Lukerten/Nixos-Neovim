@@ -111,6 +111,38 @@
         "type": "github"
       }
     },
+    "plugins-bbye": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1520078493,
+        "narHash": "sha256-xJMZQ/27TgwAnvPVH1fjF6SLOA9jvXmbfcwV0NZ1kTY=",
+        "owner": "moll",
+        "repo": "vim-bbye",
+        "rev": "25ef93ac5a87526111f43e5110675032dbcacf56",
+        "type": "github"
+      },
+      "original": {
+        "owner": "moll",
+        "repo": "vim-bbye",
+        "type": "github"
+      }
+    },
+    "plugins-bufferline": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1706526490,
+        "narHash": "sha256-M+QoCYR4WQRqH7KSkdKEBK4MyzPF2uoaA0UtMuc70ic=",
+        "owner": "akinsho",
+        "repo": "nvim-bufferline.lua",
+        "rev": "b15c6daf5a64426c69732b31a951f4e438cb6590",
+        "type": "github"
+      },
+      "original": {
+        "owner": "akinsho",
+        "repo": "nvim-bufferline.lua",
+        "type": "github"
+      }
+    },
     "plugins-catppuccin": {
       "flake": false,
       "locked": {
@@ -220,6 +252,22 @@
       "original": {
         "owner": "hrsh7th",
         "repo": "cmp-vsnip",
+        "type": "github"
+      }
+    },
+    "plugins-comment": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1691409559,
+        "narHash": "sha256-+dF1ZombrlO6nQggufSb0igXW5zwU++o0W/5ZA07cdc=",
+        "owner": "numToStr",
+        "repo": "Comment.nvim",
+        "rev": "0236521ea582747b58869cb72f70ccfa967d2e89",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numToStr",
+        "repo": "Comment.nvim",
         "type": "github"
       }
     },
@@ -825,6 +873,8 @@
         "nil": "nil",
         "nixpkgs": "nixpkgs",
         "plugins-alpha-nvim": "plugins-alpha-nvim",
+        "plugins-bbye": "plugins-bbye",
+        "plugins-bufferline": "plugins-bufferline",
         "plugins-catppuccin": "plugins-catppuccin",
         "plugins-cmp-buffer": "plugins-cmp-buffer",
         "plugins-cmp-dap": "plugins-cmp-dap",
@@ -832,6 +882,7 @@
         "plugins-cmp-path": "plugins-cmp-path",
         "plugins-cmp-treesitter": "plugins-cmp-treesitter",
         "plugins-cmp-vsnip": "plugins-cmp-vsnip",
+        "plugins-comment": "plugins-comment",
         "plugins-crates-nvim": "plugins-crates-nvim",
         "plugins-fidget": "plugins-fidget",
         "plugins-github-copilot": "plugins-github-copilot",

@@ -1,5 +1,5 @@
 {
-  description = "MerrinX Neovim Configuration";
+  description = "Lukes Neovim Configuration";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
@@ -134,6 +134,7 @@
       flake = false;
     };
 
+
     # Git
     plugins-gitsigns-nvim = {
       url = "github:lewis6991/gitsigns.nvim";
@@ -197,11 +198,24 @@
       url = "github:akinsho/toggleterm.nvim";
       flake = false;
     };
+
+    # Utils
     plugins-vimwiki = {
       url = "github:vimwiki/vimwiki";
       flake = false;
     };
-
+    plugins-comment = {
+      url = "github:numToStr/Comment.nvim";
+      flake = false;
+    };
+    plugins-bbye = {
+      url = "github:moll/vim-bbye";
+      flake = false;
+    };
+    plugins-bufferline = {
+      url = "github:akinsho/nvim-bufferline.lua";
+      flake = false;
+    };
 
     # Key binding help
     plugins-which-key = {
@@ -240,6 +254,7 @@
           enable = true;
           type = "nvim-cmp";
         };
+        vim.wordWrap = false;
         vim.git = {
           enable = true;
           gitsigns.enable = true;
@@ -299,6 +314,14 @@
         vim.statusline.lualine = {
           enable = true;
           theme = "catppuccin";
+        };
+        vim.utils = {
+          bbye.enable = true;
+          comment.enable = true;
+          vimwiki = {
+            enable = true;
+            wikiPath = "projects/private/docs/";
+          };
         };
         vim.theme.enable = true;
         vim.telescope.enable = true;
