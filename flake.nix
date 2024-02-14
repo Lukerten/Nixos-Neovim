@@ -216,6 +216,10 @@
       url = "github:akinsho/nvim-bufferline.lua";
       flake = false;
     };
+    plugins-glow = {
+      url = "github:ellisonleao/glow.nvim";
+      flake = false;
+    };
 
     # Key binding help
     plugins-which-key = {
@@ -318,6 +322,7 @@
         vim.utils = {
           bbye.enable = true;
           comment.enable = true;
+          glow.enable = true;
           vimwiki = {
             enable = true;
             wikiPath = "projects/private/docs/";

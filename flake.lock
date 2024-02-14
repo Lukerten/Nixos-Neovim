@@ -335,6 +335,22 @@
         "type": "github"
       }
     },
+    "plugins-glow": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1703345545,
+        "narHash": "sha256-GsNcASzVvY0066kak2nvUY5luzanoBclqcUOsODww8g=",
+        "owner": "ellisonleao",
+        "repo": "glow.nvim",
+        "rev": "238070a686c1da3bccccf1079700eb4b5e19aea4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ellisonleao",
+        "repo": "glow.nvim",
+        "type": "github"
+      }
+    },
     "plugins-indent-blankline": {
       "flake": false,
       "locked": {
@@ -887,6 +903,7 @@
         "plugins-fidget": "plugins-fidget",
         "plugins-github-copilot": "plugins-github-copilot",
         "plugins-gitsigns-nvim": "plugins-gitsigns-nvim",
+        "plugins-glow": "plugins-glow",
         "plugins-indent-blankline": "plugins-indent-blankline",
         "plugins-kommentary": "plugins-kommentary",
         "plugins-lazygit": "plugins-lazygit",
