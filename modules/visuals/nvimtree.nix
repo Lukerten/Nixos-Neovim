@@ -218,7 +218,8 @@ in {
     vim.startPlugins = ["nvim-tree-lua"];
 
     vim.nnoremap = {
-      "<leader>Et" = ":NvimTreeToggle<CR>";
+      "<leader>Ee" = ":NvimTreeToggle<CR>";
+      "<leader>EE" = ":NvimTreeToggle<CR>";
       "<leader>Er" = ":NvimTreeRefresh<CR>";
       "<leader>Ef" = ":NvimTreeFindFile<CR>";
       "<leader>e" = ":NvimTreeFocus<CR>";
