@@ -1,4 +1,9 @@
-{pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 with lib;
 with builtins; let
   cfg = config.vim.visuals.nvimtree;
@@ -83,7 +88,7 @@ in {
     };
 
     closeOnFileOpen = mkOption {
-      default = false;
+      default = true;
       description = "Closes the tree when a file is opened.";
       type = types.bool;
     };
@@ -219,73 +224,80 @@ in {
       "<leader>e" = ":NvimTreeFocus<CR>";
     };
 
-    vim.luaConfigRC.nvimtreelua = nvim.dag.entryAnywhere ''
-      require'nvim-tree'.setup({
-        disable_netrw = ${boolToString cfg.disableNetRW},
-        hijack_netrw = ${boolToString cfg.hijackNetRW},
-        open_on_tab = ${boolToString cfg.openTreeOnNewTab},
-        system_open = {
-          cmd = ${"'" + cfg.systemOpenCmd + "'"},
-        },
-        diagnostics = {
-          enable = ${boolToString cfg.lspDiagnostics},
-        },
-        update_cwd = ${boolToString cfg.updateCwd},
-        view  = {
-          width = 40,
-          side = "left",
-          number = false,
-          relativenumber = false,
-        },
-        renderer = {
-          indent_markers = {
-            enable = ${boolToString cfg.indentMarkers},
+    vim.luaConfigRC.nvimtreelua =
+      nvim.dag.entryAnywhere
+      /*
+      lua
+      */
+      ''
+        require'nvim-tree'.setup({
+          disable_netrw = ${boolToString cfg.disableNetRW},
+          hijack_netrw = ${boolToString cfg.hijackNetRW},
+          open_on_tab = ${boolToString cfg.openTreeOnNewTab},
+          system_open = {
+            cmd = ${"'" + cfg.systemOpenCmd + "'"},
           },
-          add_trailing = ${boolToString cfg.trailingSlash},
-          group_empty = ${boolToString cfg.groupEmptyFolders},
-        },
-        hijack_directories = {
-          enable = ${boolToString cfg.hijackDirectories.enable},
-          auto_open = ${boolToString cfg.hijackDirectories.autoOpen},
-        },
-        update_focused_file = {
-          enable = ${boolToString cfg.updateFocusedFile.enable},
-          update_cwd = ${boolToString cfg.updateFocusedFile.updateCwd},
-          ignore_list = {
-            ${builtins.concatStringsSep "\n" (builtins.map (s: "\"" + s + "\",") cfg.updateFocusedFile.ignoreList)}
+          diagnostics = {
+            enable = ${boolToString cfg.lspDiagnostics},
           },
-        },
-        system_open = {
-          cmd = ${
-        if cfg.systemOpen.cmd == null
-        then "nil"
-        else "'" + cfg.systemOpen.cmd + "'"
-      },
-          args = {
-            ${builtins.concatStringsSep "\n" (builtins.map (s: "\"" + s + "\",") cfg.systemOpen.args)}
+          update_cwd = ${boolToString cfg.updateCwd},
+          view  = {
+            width = 40,
+            side = "left",
+            number = false,
+            relativenumber = false,
           },
-        },
-        actions = {
-          use_system_clipboard = ${boolToString cfg.useSystemClipboard},
-          change_dir = {
-            enable = ${boolToString cfg.followBufferFile},
+          renderer = {
+            indent_markers = {
+              enable = ${boolToString cfg.indentMarkers},
+            },
+            add_trailing = ${boolToString cfg.trailingSlash},
+            group_empty = ${boolToString cfg.groupEmptyFolders},
+            highlight_git = true,
+            root_folder_modifier = ":t",
           },
-          open_file = {
-            quit_on_open = ${boolToString cfg.closeOnFileOpen},
-            resize_window = ${boolToString cfg.resizeOnFileOpen},
+          hijack_directories = {
+            enable = ${boolToString cfg.hijackDirectories.enable},
+            auto_open = ${boolToString cfg.hijackDirectories.autoOpen},
           },
-        },
-        git = {
-          enable = true,
-          ignore = ${boolToString cfg.hideIgnoredGitFiles},
-        },
-        filters = {
-          dotfiles = ${boolToString cfg.hideDotFiles},
-          custom = {
-            ${builtins.concatStringsSep "\n" (builtins.map (s: "\"" + s + "\",") cfg.hideFiles)}
+          update_focused_file = {
+            enable = ${boolToString cfg.updateFocusedFile.enable},
+            update_cwd = ${boolToString cfg.updateFocusedFile.updateCwd},
+            ignore_list = {
+              ${builtins.concatStringsSep "\n" (builtins.map (s: "\"" + s + "\",") cfg.updateFocusedFile.ignoreList)}
+            },
           },
+          system_open = {
+            cmd = ${
+          if cfg.systemOpen.cmd == null
+          then "nil"
+          else "'" + cfg.systemOpen.cmd + "'"
         },
-      })
-    '';
+            args = {
+              ${builtins.concatStringsSep "\n" (builtins.map (s: "\"" + s + "\",") cfg.systemOpen.args)}
+            },
+          },
+          actions = {
+            use_system_clipboard = ${boolToString cfg.useSystemClipboard},
+            change_dir = {
+              enable = ${boolToString cfg.followBufferFile},
+            },
+            open_file = {
+              quit_on_open = ${boolToString cfg.closeOnFileOpen},
+              resize_window = ${boolToString cfg.resizeOnFileOpen},
+            },
+          },
+          git = {
+            enable = true,
+            ignore = ${boolToString cfg.hideIgnoredGitFiles},
+          },
+          filters = {
+            dotfiles = ${boolToString cfg.hideDotFiles},
+            custom = {
+              ${builtins.concatStringsSep "\n" (builtins.map (s: "\"" + s + "\",") cfg.hideFiles)}
+            },
+          },
+        })
+      '';
   };
 }

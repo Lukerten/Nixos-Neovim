@@ -112,7 +112,7 @@ in {
         end
 
         vim.g.copilot_no_tab_map = true
-        vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+        vim.api.nvim_set_keymap("i", "<C-a>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
         local has_words_before = function()
           local line, col = unpack(vim.api.nvim_win_get_cursor(0))
           return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
@@ -126,6 +126,14 @@ in {
         local feedkey = function(key, mode)
           vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
         end
+
+        vim.cmd([[
+          augroup DisableCMPInCertainFiles
+            autocmd!
+            autocmd FileType markdown,text,mediawiki,plaintext,conf,ini,log setlocal omnifunc=
+          augroup END
+        ]])
+
 
         local cmp = require'cmp'
         cmp.setup({

@@ -15,6 +15,7 @@ in
     };
   };
   config = {
+
     vim.nnoremap =
       if (cfg.coreKeys)
       then {

@@ -26,7 +26,7 @@ in {
       left = mkOption {
         description = "Section separator for left side";
         type = types.str;
-        default =  "";
+        default = "";
       };
 
       right = mkOption {
@@ -145,12 +145,16 @@ in {
   config = mkIf cfg.enable {
     vim.startPlugins = ["lualine"];
     vim.luaConfigRC.lualine =
-      nvim.dag.entryAnywhere /* lua */ ''
+      nvim.dag.entryAnywhere
+      /*
+      lua
+      */
+      ''
         require'lualine'.setup {
           options = {
             icons_enabled = ${boolToString cfg.icons},
             theme = "${cfg.theme}",
-            disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
+            disabled_filetypes = { "dashboard", "NvimTree", "Outline", "toggleterm" , "alpha" , "Trouble" },
             always_divide_middle = true,
             component_separators = {
               left = "${cfg.componentSeparator.left}",

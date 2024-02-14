@@ -13,6 +13,10 @@
     };
 
     # LSP plugins
+    plugins-cmp-nvim-lsp = {
+      url = "github:hrsh7th/cmp-nvim-lsp";
+      flake = false;
+    };
     plugins-fidget = {
       url = "github:j-hui/fidget.nvim";
       flake = false;
@@ -89,10 +93,6 @@
     };
     plugins-cmp-buffer = {
       url = "github:hrsh7th/cmp-buffer";
-      flake = false;
-    };
-    plugins-cmp-nvim-lsp = {
-      url = "github:hrsh7th/cmp-nvim-lsp";
       flake = false;
     };
     plugins-cmp-vsnip = {
@@ -193,14 +193,19 @@
       url = "github:goolord/alpha-nvim";
       flake = false;
     };
+    plugins-toggle-term = {
+      url = "github:akinsho/toggleterm.nvim";
+      flake = false;
+    };
+    plugins-vimwiki = {
+      url = "github:vimwiki/vimwiki";
+      flake = false;
+    };
+
 
     # Key binding help
     plugins-which-key = {
       url = "github:folke/which-key.nvim";
-      flake = false;
-    };
-    plugins-toggle-term = {
-      url = "github:akinsho/toggleterm.nvim";
       flake = false;
     };
     plugins-plenary-nvim = {

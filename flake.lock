@@ -767,6 +767,22 @@
         "type": "github"
       }
     },
+    "plugins-vimwiki": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1706152453,
+        "narHash": "sha256-K82iqA5IBNUn/IfaDV5AJzcupffY+ye9SfSe10x3Pl0=",
+        "owner": "vimwiki",
+        "repo": "vimwiki",
+        "rev": "fde35bb87e45abe930eebef5ab99a16289e53789",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vimwiki",
+        "repo": "vimwiki",
+        "type": "github"
+      }
+    },
     "plugins-which-key": {
       "flake": false,
       "locked": {
@@ -850,6 +866,7 @@
         "plugins-tokyonight": "plugins-tokyonight",
         "plugins-trouble": "plugins-trouble",
         "plugins-vim-vsnip": "plugins-vim-vsnip",
+        "plugins-vimwiki": "plugins-vimwiki",
         "plugins-which-key": "plugins-which-key",
         "rnix-lsp": "rnix-lsp"
       }
