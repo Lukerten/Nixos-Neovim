@@ -313,6 +313,7 @@
             enable = true;
           };
           nvimtree.enable = true;
+          bufferline.enable = true;
           todoComments.enable = true;
         };
         vim.statusline.lualine = {
