@@ -11,6 +11,8 @@ in
   imports = [
     ./clang.nix
     ./css.nix
+    ./dhal.nix
+    ./golang.nix
     ./haskell.nix
     ./html.nix
     ./java.nix
@@ -24,6 +26,7 @@ in
     ./sql.nix
     ./tailwind.nix
     ./ts.nix
+    ./vue.nix
   ];
 
   options.vim.languages = {

@@ -21,7 +21,10 @@ in {
     {
       vim.lsp.enable = true;
 
-      vim.startPlugins = ["nvim-lspconfig"];
+      vim.startPlugins = [
+        "nvim-lspconfig"
+        "lsp-installer"
+      ];
 
       vim.luaConfigRC.lspconfig = nvim.dag.entryAfter ["lsp-setup"] ''
         local lspconfig = require('lspconfig')

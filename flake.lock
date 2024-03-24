@@ -399,6 +399,22 @@
         "type": "github"
       }
     },
+    "plugins-lsp-installer": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668261436,
+        "narHash": "sha256-kA/JLOxRm0CXki6vYCxQTlm6kK2k/mxa+RZKLctMwfM=",
+        "owner": "williamboman",
+        "repo": "nvim-lsp-installer",
+        "rev": "17e0bfa5f2c8854d1636fcd036dc8284db136baa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "williamboman",
+        "repo": "nvim-lsp-installer",
+        "type": "github"
+      }
+    },
     "plugins-lualine": {
       "flake": false,
       "locked": {
@@ -907,6 +923,7 @@
         "plugins-indent-blankline": "plugins-indent-blankline",
         "plugins-kommentary": "plugins-kommentary",
         "plugins-lazygit": "plugins-lazygit",
+        "plugins-lsp-installer": "plugins-lsp-installer",
         "plugins-lualine": "plugins-lualine",
         "plugins-noice": "plugins-noice",
         "plugins-notify": "plugins-notify",

@@ -29,6 +29,10 @@
       url = "github:jose-elias-alvarez/null-ls.nvim";
       flake = false;
     };
+    plugins-lsp-installer = {
+      url = "github:williamboman/nvim-lsp-installer";
+      flake = false;
+    };
     plugins-trouble = {
       url = "github:folke/trouble.nvim";
       flake = false;
@@ -279,6 +283,8 @@
 
           clang.enable = true;
           css.enable = true;
+          dhall.enable = true;
+          golang.enable = true;
           haskell.enable = true;
           html.enable = true;
           java.enable = true;
@@ -295,6 +301,7 @@
           sql.enable = true;
           tailwind.enable = true;
           ts.enable = true;
+          vue.enable = true;
         };
         vim.lsp = {
           formatOnSave = false;
